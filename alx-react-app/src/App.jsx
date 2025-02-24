@@ -16,4 +16,19 @@ function App() {
     </div>
   );
 }
+
+import UserProfile from './alx-react-app-new/UserProfile'; // Or './UserProfile' if in same directory
+
+function App() {
+  return (
+    <div>
+      <UserProfile 
+        name="Alice" 
+        age="25" 
+        bio="Loves hiking and photography" 
+      />
+      {/* ... other UserProfile components or other content ... */}
+    </div>
+  );
+}
 export default App;

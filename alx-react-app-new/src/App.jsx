@@ -32,3 +32,14 @@ function App() {
   );
 }
 export default App;
+
+
+import Counter from './Counter'; // Assuming Counter.jsx is in the same directory
+
+function App() {
+  return (
+    <div>
+      <Counter />
+    </div>
+  );
+}

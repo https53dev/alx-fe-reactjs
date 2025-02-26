@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Footer = () => {
+function Footer() {
   return (
-    <div style={{ backgroundColor: 'navy', color: 'white', textAlign: 'center' }}><footer>
-    <p>© 2023 City Lovers</p>
-  </footer></div>
-  )
+    <footer style={{ backgroundColor: 'navy', color: 'white', textAlign: 'center' }}>
+      <p>© 2023 City Lovers</p>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

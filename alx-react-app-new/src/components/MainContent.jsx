@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const MainContent = () => {
+function MainContent() {
   return (
-    <div><main>
-    <p>I love to visit New York, Paris, and Tokyo.</p>
-  </main></div>
-  )
+    <main style={{ backgroundColor: 'bule', color: 'white', textAlign: 'center' }}>
+      <p>I love to visit New York, Paris, and Tokyo.</p>
+    </main>
+  );
 }
 
-export default MainContent
+export default MainContent;

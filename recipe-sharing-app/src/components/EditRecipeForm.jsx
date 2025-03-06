@@ -1,60 +1,43 @@
-import { useState } from 'react';
-import { useRecipeStore } from '../store/recipeStore'; 
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import useRecipeStore from '../recipeStore';
+import EditRecipeForm from './EditRecipeForm';
+import DeleteRecipeButton from './DeleteRecipeButton';
 
-const EditRecipeForm = ({ recipe }) => {
-  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
-  const navigate = useNavigate();
-  const [title, setTitle] = useState(recipe.title);
-  const [description, setDescription] = useState(recipe.description);
-  // ... other states for ingredients, instructions, etc.
+const RecipeDetails = () => {
+  const { recipeId } = useParams();
+  const recipe = useRecipeStore((state) =>
+    state.recipes.find((recipe) => recipe.id === parseInt(recipeId))
+  );
+  const favorites = useRecipeStore((state) => state.favorites);
+  const addFavorite = useRecipeStore((state) => state.addFavorite);
+  const removeFavorite = useRecipeStore((state) => state.removeFavorite);
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    updateRecipe({
-      id : parseInt(id),
-      title : newTitle,
-      description: newDescription
-    });
-    alert("Your recipe has been updated");
-    navigate("/");
-  };
+  if (!recipe) {
+    return <div>Recipe not found!</div>;
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
-    const updatedRecipe = {
-      id: recipe.id,
-      title,
-      description,
-      // ... other updated recipe data
-    };
-    updateRecipe(updatedRecipe);
-    navigate(`/recipes/${recipe.id}`); 
+  const isFavorite = favorites.includes(recipe.id);
+
+  const handleFavoriteToggle = () => {
+    if (isFavorite) {
+      removeFavorite(recipe.id);
+    } else {
+      addFavorite(recipe.id);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </div>
-      {/* ... input fields for other recipe details */}
-      <button type="submit">Save Changes</button>
-    </form>
+    <div>
+      <h1>{recipe.title}</h1>
+      <p>{recipe.description}</p>
+      <button onClick={handleFavoriteToggle}>
+        {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+      </button>
+      <EditRecipeForm recipe={recipe} />
+      <DeleteRecipeButton recipeId={recipe.id} />
+    </div>
   );
 };
 
-export default EditRecipeForm;
+export default RecipeDetails;

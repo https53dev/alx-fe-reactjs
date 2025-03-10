@@ -1,13 +1,19 @@
 import React from 'react';
+import FormikForm from './components/formikForm';
 import RegistrationForm from './components/RegistrationForm';
+
+
 
 const App = () => {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>User Registration</h1>
+    <div>
+      <h1>Controlled Form</h1>
       <RegistrationForm />
+      <h1>Formik Form</h1>
+      <FormikForm />
     </div>
   );
 };
+
 
 export default App;

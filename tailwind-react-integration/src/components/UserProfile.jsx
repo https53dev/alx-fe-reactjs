@@ -12,7 +12,7 @@ const UserProfile = () => {
         <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-blue-800 my-4 font-bold transition-colors duration-300 ease-in-out hover:text-blue-500">
           John Doe
         </h1>
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mt-2">
+        <p className="text-sm sm:text-base md:text-xl lg:text-xl text-gray-600 mt-2">
           Developer at Example Co. Loves to write code and explore new technologies.
         </p>
       </div>

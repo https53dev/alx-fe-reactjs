@@ -7,7 +7,7 @@ const UserProfile = () => {
         <img
           src="https://via.placeholder.com/150"
           alt="Profile"
-          className="rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-48 lg:h-48 transition-transform duration-300 ease-in-out hover:scale-110"
+          className="rounded-full w-24 h-24 sm:w-24 sm:h-24 md:w-36 md:h-36 lg:w-48 lg:h-48 transition-transform duration-300 ease-in-out hover:scale-110"
         />
         <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-blue-800 my-4 font-bold transition-colors duration-300 ease-in-out hover:text-blue-500">
           John Doe
